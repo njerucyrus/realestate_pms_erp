@@ -1,0 +1,3 @@
+/Users/nerd/odoo/addons,/Users/nerd/odoo/custom
+
+./odoo-bin --addons-path=/Users/nerd/odoo/addons,/Users/nerd/odoo/custom -d odoo14 --save --config=.odoo14conf
