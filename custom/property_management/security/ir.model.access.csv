@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hospital_patient,access.hospital.patient,model_hospital_patient,,1,1,1,1
+access_pms_property,access.pms.property,model_pms_property,,1,1,1,1
+access_pms_agent,access.pms.agent,model_pms_agent,,1,1,1,1
+access_pms_landlord,access.pms.landlord,model_pms_landlord,,1,1,1,1
+access_pms_property_unit,access.pms.property_unit,model_pms_property_unit,,1,1,1,1
+access_pms_tenancy_detail,access.pms.tenancy_detail,model_pms_tenancy_detail,,1,1,1,1
+access_pms_tenant,access.pms.tenant,model_pms_tenant,,1,1,1,1

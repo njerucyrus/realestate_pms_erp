@@ -2,7 +2,7 @@
 {
     'name': "Property Management",
 
-    'summary': "Property Managementt",
+    'summary': "Property Management",
 
     'description': """
         Long description of module's purpose
@@ -24,12 +24,13 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data.xml',
-        'views/patient.xml',
+        'views/property.xml',
+        'views/agents.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         ],
-    "sequence": -100,
+    "sequence": -101,
     "installable": True,
     "application": True,
     "auto_install": False,

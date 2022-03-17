@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="property_tree" model="ir.ui.view">
+        <field name="name">pms.property.tree</field>
+        <field name="model">pms.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="country"/>
+                <field name="state"/>
+                <field name="city"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="property_form" model="ir.ui.view">
+        <field name="name">pms.property.form</field>
+        <field name="model">pms.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+
+                        <group col="3" colspan="3">
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="property_type" string="Property Type"/>
+                            </group>
+                            <group>
+                                <field name="image" widget='image'
+                                       options="{'preview_image': 'image_small', 'size': [150, 150]}"/>
+                            </group>
+
+                        </group>
+
+                        <group col="2" colspan="2">
+                            <group>
+                                <field name="country"/>
+                            </group>
+                            <group>
+                                <field name="state"/>
+                            </group>
+                        </group>
+                        <group col="2" colspan="2">
+
+                            <group>
+                                <field name="city"/>
+                            </group>
+                            <group>
+                                <field name="address"/>
+                            </group>
+                        </group>
+
+
+                        <group col="3" colspan="3" string="Amenities(Tick where applicable)">
+                            <group string="Nearby" colspan="1">
+                                <field name="nearby_bus_stop"/>
+                                <field name="nearby_hospital"/>
+                                <field name="scenic_view"/>
+                            </group>
+                            <group string="External Features">
+                                <field name="balcony" string="Balcony"/>
+                                <field name="cctv" string="CCTV"/>
+                                <field name="garden" string="Garden"/>
+                                <field name="swimming_pool" string="Swimming Pool"/>
+                                <field name="lift" string="Lift/Elevator"/>
+                                <field name="parking" string="Parking"/>
+                                <field name="electric_fence" string="Electric Fence"/>
+                                <field name="gym" string="Gym"/>
+
+                            </group>
+                            <group string="Internal Features">
+                                <field name="ensuite" string="Ensuite"/>
+                                <field name="alarm" string="Alarm"/>
+                                <field name="fiber_internet" string="Fiber Internet"/>
+                                <field name="backup_generator" string="Backup Generator"/>
+                                <field name="walkin_closet" string="Walk In Closet"/>
+                                <field name="service_charge" string="Service Charge"/>
+                            </group>
+
+                        </group>
+
+
+                    </group>
+                    <notebook>
+                        <page string="Units">
+                            <field name="property_unit_lines">
+                                <tree editable="bottom">
+                                    <field name="property_id" invisible="1"/>
+                                    <field name="house_number"/>
+                                    <field name="floor"/>
+                                    <field name="unit_type"/>
+                                    <field name="rent_fee"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="property_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pms.property</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a new property!
+            </p>
+
+        </field>
+    </record>
+
+    <record id="landlord_action" model="ir.actions.act_window">
+        <field name="name">Landlords</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pms.landlord</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a new landlord!
+            </p>
+
+        </field>
+    </record>
+
+
+
+
+    <record id="tenant_action" model="ir.actions.act_window">
+        <field name="name">Tenants</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pms.tenant</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a new tenant!
+            </p>
+
+        </field>
+    </record>
+
+
+    <record id="tenancy_details_action" model="ir.actions.act_window">
+        <field name="name">Tenancy Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pms.tenancy_detail</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add new tenancy details
+            </p>
+
+        </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="pms_root"
+              name="Property Management"
+              sequence="10"/>
+
+    <menuitem id="pms_property_root"
+              name="Rental"
+              parent="pms_root"
+              sequence="10"/>
+
+    <menuitem id="pms_property"
+              name="Properties"
+              parent="pms_property_root"
+              action="property_action"
+              sequence="10"/>
+
+    <menuitem id="pms_landlord"
+              name="Landlords"
+              parent="pms_property_root"
+              action="landlord_action"
+              sequence="10"/>
+
+
+
+    <menuitem id="pms_tenant"
+              name="Tenants"
+              parent="pms_property_root"
+              action="tenant_action"
+              sequence="10"/>
+
+    <menuitem id="pms_tenancy_details"
+              name="Tenancy Details"
+              parent="pms_property_root"
+              action="tenancy_details_action"
+              sequence="10"/>
+
+
+</odoo>
