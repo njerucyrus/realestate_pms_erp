@@ -5,7 +5,7 @@ class TenancyDetail(models.Model):
     _name = 'pms.tenancy_detail'
     _description = 'Tenancy Details'
 
-    property_id = fields.Many2one(comodel_name='property', string='Property')
+    property_id = fields.Many2one(comodel_name='pms.property', string='Property')
     property_unit_id = fields.Many2one(comodel_name='pms.property_unit', String="House Number")
     tenant_id = fields.Many2one(comodel_name='pms.tenant', string='Tenant')
     tenancy_start = fields.Date(string="Tenancy Start")

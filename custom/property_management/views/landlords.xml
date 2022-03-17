@@ -66,5 +66,5 @@
               name="Landlords"
               parent="pms_property_root"
               action="landlord_action"
-              sequence="10"/>
+              sequence="11"/>
 </odoo>

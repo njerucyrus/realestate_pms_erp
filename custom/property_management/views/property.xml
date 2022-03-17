@@ -123,26 +123,6 @@
         </field>
     </record>
 
-
-
-
-
-
-    <record id="tenant_action" model="ir.actions.act_window">
-        <field name="name">Tenants</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">pms.tenant</field>
-        <field name="view_mode">tree,kanban,form</field>
-
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Register a new tenant!
-            </p>
-
-        </field>
-    </record>
-
-
     <record id="tenancy_details_action" model="ir.actions.act_window">
         <field name="name">Tenancy Details</field>
         <field name="type">ir.actions.act_window</field>
@@ -173,17 +153,13 @@
               action="property_action"
               sequence="10"/>
 
-    <menuitem id="pms_tenant"
-              name="Tenants"
-              parent="pms_property_root"
-              action="tenant_action"
-              sequence="10"/>
+
 
     <menuitem id="pms_tenancy_details"
               name="Tenancy Details"
               parent="pms_property_root"
               action="tenancy_details_action"
-              sequence="10"/>
+              sequence="14"/>
 
 
 </odoo>

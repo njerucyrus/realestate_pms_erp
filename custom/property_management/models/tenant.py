@@ -3,6 +3,7 @@ from odoo import api, fields, models, _
 
 class Tenant(models.Model):
     _name = 'pms.tenant'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Tenant'
 
     name = fields.Char(string='Full Name', required=True, tracking=True)
@@ -19,4 +20,15 @@ class Tenant(models.Model):
         ('other', 'Other'),
         ('not_say', 'Prefer not to say'),
     ])
+
+    country = fields.Selection(selection=[
+        ('kenya', 'Kenya'),
+        ('uganda', 'Uganda'),
+        ('tanzania', 'Tanzania'),
+        ('rwanda', 'Rwanda'),
+    ], default='kenya', string='Country')
+
+    state = fields.Char(string='State')
+    city = fields.Char(string='City')
+    address = fields.Char(string='Address')
 
