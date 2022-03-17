@@ -123,19 +123,7 @@
         </field>
     </record>
 
-    <record id="tenancy_details_action" model="ir.actions.act_window">
-        <field name="name">Tenancy Details</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">pms.tenancy_detail</field>
-        <field name="view_mode">tree,kanban,form</field>
 
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Add new tenancy details
-            </p>
-
-        </field>
-    </record>
 
     <!-- Top menu item -->
     <menuitem id="pms_root"
@@ -152,14 +140,5 @@
               parent="pms_property_root"
               action="property_action"
               sequence="10"/>
-
-
-
-    <menuitem id="pms_tenancy_details"
-              name="Tenancy Details"
-              parent="pms_property_root"
-              action="tenancy_details_action"
-              sequence="14"/>
-
 
 </odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <record id="tenancy_details_tree" model="ir.ui.view">
+        <field name="name">pms.tenancy_detail.tree</field>
+        <field name="model">pms.tenancy_detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="tenant_id"/>
+                <field name="property_id"/>
+                <field name="property_unit_id"/>
+                <field name="tenancy_start"/>
+                <field name="tenancy_end"/>
+                <field name="deposit"/>
+                <field name="payment_day"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="tenancy_details_form" model="ir.ui.view">
+        <field name="name">pms.tenancy_details.form</field>
+        <field name="model">pms.tenancy_detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="tenant_id"/>
+                            <field name="property_id"/>
+                            <field name="property_unit_id"/>
+                            <field name="tenancy_start"/>
+                            <field name="tenancy_end"/>
+                        </group>
+                        <group>
+                            <field name="deposit"/>
+                            <field name="payment_day"/>
+                            <field name="filename" invisible="1"/>
+                            <field name="attachment_id" filename="filename" widget='file'/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="tenancy_details_action" model="ir.actions.act_window">
+        <field name="name">Tenancy Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pms.tenancy_detail</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add new tenancy details
+            </p>
+
+        </field>
+    </record>
+    <menuitem id="pms_tenancy_details"
+              name="Tenancy Details"
+              parent="pms_property_root"
+              action="tenancy_details_action"
+              sequence="14"/>
+</odoo>

@@ -1,10 +1,11 @@
 from odoo import api, fields, models, _
-from odoo.exceptions import  ValidationError
-
+from odoo.exceptions import ValidationError
 
 
 class TenancyDetail(models.Model):
     _name = 'pms.tenancy_detail'
+    _rec_name = 'tenant_id'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Tenancy Details'
 
     property_id = fields.Many2one(comodel_name='pms.property', string='Property')
@@ -14,7 +15,8 @@ class TenancyDetail(models.Model):
     tenancy_end = fields.Date(string="Tenancy End")
     deposit = fields.Float(string='Deposit')
     payment_day = fields.Integer(string='Payment Day')
-    attachment_id = fields.Many2one(comodel_name='ir.attachment', string="Agreement Document", required=True)
+    attachment_id = fields.Binary(string="Agreement Document", required=True)
+    filename = fields.Char('Filename')
 
     @api.constrains('tenancy_start', 'tenancy_end')
     def date_constrains(self):

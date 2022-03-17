@@ -28,6 +28,7 @@
         'views/agents.xml',
         'views/landlords.xml',
         'views/tenants.xml',
+        'views/tenancy_details.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
