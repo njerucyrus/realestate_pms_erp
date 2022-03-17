@@ -26,6 +26,7 @@
         'data/data.xml',
         'views/property.xml',
         'views/agents.xml',
+        'views/landlords.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

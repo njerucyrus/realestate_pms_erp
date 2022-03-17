@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+      <record id="landlord_tree" model="ir.ui.view">
+        <field name="name">pms.landlord.tree</field>
+        <field name="model">pms.landlord</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone_number"/>
+                <field name="email_id"/>
+                <field name="landlord_type"/>
+                <field name="country"/>
+                <field name="state"/>
+                <field name="city"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+    <record id="landlord_form" model="ir.ui.view">
+        <field name="name">pms.landlord.form</field>
+        <field name="model">pms.landlord</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Info">
+                            <field name="name"/>
+                            <field name="phone_number"/>
+                            <field name="email_id"/>
+                            <field name="landlord_type"/>
+                        </group>
+                        <group string="Address Info">
+
+                            <field name="country"/>
+                            <field name="state"/>
+                            <field name="city"/>
+                            <field name="address"/>
+
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="landlord_action" model="ir.actions.act_window">
+        <field name="name">Landlords</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pms.landlord</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register the first landlord
+            </p>
+
+        </field>
+    </record>
+
+    <menuitem id="pms_landlord"
+              name="Landlords"
+              parent="pms_property_root"
+              action="landlord_action"
+              sequence="10"/>
+</odoo>

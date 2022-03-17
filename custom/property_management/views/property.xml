@@ -123,19 +123,7 @@
         </field>
     </record>
 
-    <record id="landlord_action" model="ir.actions.act_window">
-        <field name="name">Landlords</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">pms.landlord</field>
-        <field name="view_mode">tree,kanban,form</field>
 
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Register a new landlord!
-            </p>
-
-        </field>
-    </record>
 
 
 
@@ -184,14 +172,6 @@
               parent="pms_property_root"
               action="property_action"
               sequence="10"/>
-
-    <menuitem id="pms_landlord"
-              name="Landlords"
-              parent="pms_property_root"
-              action="landlord_action"
-              sequence="10"/>
-
-
 
     <menuitem id="pms_tenant"
               name="Tenants"
