@@ -24,11 +24,11 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data.xml',
-        'views/property.xml',
-        'views/agents.xml',
-        'views/landlords.xml',
-        'views/tenants.xml',
-        'views/tenancy_details.xml',
+        'views/property_view.xml',
+        'views/agents_view.xml',
+        'views/landlords_view.xml',
+        'views/tenants_view.xml',
+        'views/tenancy_details_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

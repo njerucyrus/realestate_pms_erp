@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <record id="agent_tree" model="ir.ui.view">
-        <field name="name">pms.agent.tree</field>
-        <field name="model">pms.agent</field>
+      <record id="view_landlord_tree" model="ir.ui.view">
+        <field name="name">pms.landlord.tree</field>
+        <field name="model">pms.landlord</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
                 <field name="phone_number"/>
                 <field name="email_id"/>
-                <field name="agent_type"/>
+                <field name="landlord_type"/>
                 <field name="country"/>
                 <field name="state"/>
                 <field name="city"/>
@@ -17,9 +17,9 @@
             </tree>
         </field>
     </record>
-    <record id="agent_form" model="ir.ui.view">
-        <field name="name">pms.agent.form</field>
-        <field name="model">pms.agent</field>
+    <record id="view_landlord_form" model="ir.ui.view">
+        <field name="name">pms.landlord.form</field>
+        <field name="model">pms.landlord</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -28,7 +28,7 @@
                             <field name="name"/>
                             <field name="phone_number"/>
                             <field name="email_id"/>
-                            <field name="agent_type"/>
+                            <field name="landlord_type"/>
                         </group>
                         <group string="Address Info">
 
@@ -48,23 +48,23 @@
         </field>
     </record>
 
-
-    <record id="agent_action" model="ir.actions.act_window">
-        <field name="name">Agents</field>
+    <record id="action_pms_landlord" model="ir.actions.act_window">
+        <field name="name">Landlords</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">pms.agent</field>
+        <field name="res_model">pms.landlord</field>
         <field name="view_mode">tree,kanban,form</field>
 
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Register a new agent!
+                Register the first landlord
             </p>
+
         </field>
     </record>
 
-    <menuitem id="pms_agent"
-              name="Agents"
-              parent="pms_property_root"
-              action="agent_action"
-              sequence="12"/>
+    <menuitem id="menu_pms_landlord"
+              name="Landlords"
+              parent="menu_pms_property_root"
+              action="action_pms_landlord"
+              sequence="11"/>
 </odoo>

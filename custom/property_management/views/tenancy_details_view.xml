@@ -2,7 +2,7 @@
 
 <odoo>
 
-    <record id="tenancy_details_tree" model="ir.ui.view">
+    <record id="view_tenancy_details_tree" model="ir.ui.view">
         <field name="name">pms.tenancy_detail.tree</field>
         <field name="model">pms.tenancy_detail</field>
         <field name="arch" type="xml">
@@ -18,7 +18,7 @@
             </tree>
         </field>
     </record>
-    <record id="tenancy_details_form" model="ir.ui.view">
+    <record id="view_tenancy_details_form" model="ir.ui.view">
         <field name="name">pms.tenancy_details.form</field>
         <field name="model">pms.tenancy_detail</field>
         <field name="arch" type="xml">
@@ -49,7 +49,7 @@
     </record>
 
 
-    <record id="tenancy_details_action" model="ir.actions.act_window">
+    <record id="action_pms_tenancy_detail" model="ir.actions.act_window">
         <field name="name">Tenancy Details</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">pms.tenancy_detail</field>
@@ -62,9 +62,9 @@
 
         </field>
     </record>
-    <menuitem id="pms_tenancy_details"
+    <menuitem id="menu_pms_tenancy_details"
               name="Tenancy Details"
-              parent="pms_property_root"
-              action="tenancy_details_action"
+              parent="menu_pms_property_root"
+              action="action_pms_tenancy_detail"
               sequence="14"/>
 </odoo>

@@ -18,6 +18,19 @@ class TenancyDetail(models.Model):
     attachment_id = fields.Binary(string="Agreement Document", required=True)
     filename = fields.Char('Filename')
 
+    @api.model
+    def create(self, vals):
+        res = super(TenancyDetail, self).create(vals)
+        unit_record = self.env['pms.property_unit'].search([('id', '=', vals.get('property_unit_id'))])
+        unit_record.write({'status': 'occupied'})
+        return res
+
+    def unlink(self):
+        for rec in self:
+            unit_record = self.env['pms.property_unit'].search([('id', '=', rec.property_unit_id.id)])
+            unit_record.write({'status': 'vacant'})
+        return super(TenancyDetail, self).unlink()
+
     @api.constrains('tenancy_start', 'tenancy_end')
     def date_constrains(self):
         for rec in self:
@@ -28,3 +41,7 @@ class TenancyDetail(models.Model):
     def onchange_property_id(self):
         for rec in self:
             return {'domain': {'property_unit_id': [('property_id', '=', rec.property_id.id)]}}
+
+
+
+

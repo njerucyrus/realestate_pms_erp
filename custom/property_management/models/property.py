@@ -43,13 +43,15 @@ class Property(models.Model):
     ensuite = fields.Boolean(string="Ensuite", tracking=True, default=False)
     alarm = fields.Boolean(string="Alarm", tracking=True, default=False)
     property_unit_lines = fields.One2many('pms.property_unit', 'property_id', string='Unit Lines')
-    # units = fields.Char(string='Units', compute='_compute_property_lines')
+    units = fields.Char(string='Units', default="-")
+
     # vacant = fields.Char(string='Vacant Units', compute='_compute_vacant')
     # occupied = fields.Char(string='Occupied Units', compute='_compute_occupied')
 
     # def _compute_property_lines(self):
-    #     lines = len(self.property_unit_lines)
-    #     self.units = f"{lines}"
+    #     for rec in self:
+    #         self.units = f"{len(rec.property_unit_lines)}"
+
     #
     # def _compute_vacant(self):
     #     vacant_units = 0
